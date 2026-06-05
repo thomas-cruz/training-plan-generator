@@ -1,0 +1,73 @@
+/**
+ * Training Plan Generator - Comprehensive Type Definitions
+ */
+
+export enum PlanType {
+  BEGINNER_5K = "Beginner 5K Run",
+  // BEGINNER_10K = "Beginner 10K Run",
+  // HALF_MARATHON = "First Half Marathon",
+  // CENTURY_RIDE = "First Century Ride",
+  // FTP_IMPROVEMENT = "FTP Improvement"
+}
+
+export interface UserInput {
+  age: number;
+  skillLevel: SkillLevel;
+  weeklyVolume: number;
+  currentCd?: number | null;
+  targetFtP?: number | null;
+  active?: boolean;
+}
+
+export enum SkillLevel {
+  BEGINNER = "Beginner",
+  INTERMEDIATE = "Intermediate",
+  ADVANCED = "Advanced"
+}
+
+export interface TrainingDay {
+  dayName: string;
+  workoutType: DayWorkoutType;
+  distanceKm?: number;
+  durationHours?: number;
+  durationMinutes?: number;
+  intensityLevel: number;
+  description: string;
+  effort?: number;
+  notes?: string;
+}
+
+export type DayWorkoutType = 
+  | "rest" | "recovery"
+  | "easy_run" | "tempo_run" | "interval_run" | "long_run"
+  | "short_run" | "speed"
+  | "long_ride" | "structured_ride" | "interval_ride"
+  | "threshold_ride" | "hiit" | "hill_ride"
+  | "ss_ride" | "strength"
+  | "cross_train";
+
+export interface TrainingWeek {
+  weekNumber: number;
+  maxWeeklyDistance: number;
+  days: TrainingDay[];
+}
+
+export interface TrainingPlan {
+  id: string;
+  planType: PlanType;
+  title: string;
+  description: string;
+  totalWeeks: number;
+  totalDurationDays: number;
+  recommendedStartTime: string;
+  weeklySchedule: number[][];
+  workouts: number[][];
+  progressMetrics: number[][];
+  recoveryInstructions: Record<number, string>[];
+}
+
+export interface ProgressionStep {
+  weekFrom: number;
+  weekTo: number;
+  adjustmentMultiplier: number;
+}
