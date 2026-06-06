@@ -42,21 +42,21 @@ export class Beginner10KGenerator
                         "km",
                         [
                             this.scheduleWorkout(
-                                "Tuesday",
+                                "Weekday",
                                 RunningWorkouts.easyRun(
                                     Math.round(volume * 0.3)
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Thursday",
+                                "Weekday",
                                 RunningWorkouts.tempoRun(
                                     Math.round(volume * 0.3)
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Sunday",
+                                "Weekend",
                                 RunningWorkouts.longRun(
                                     Math.round(volume * 0.4)
                                 )

@@ -43,21 +43,21 @@ export class CenturyRideGenerator
                         "hours",
                         [
                             this.scheduleWorkout(
-                                "Tuesday",
+                                "Weekday",
                                 CyclingWorkouts.enduranceRide(
                                     1.5
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Thursday",
+                                "Weekday",
                                 CyclingWorkouts.sweetSpotRide(
                                     1.5
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Sunday",
+                                "Weekend",
                                 CyclingWorkouts.longRide(
                                     Math.round(
                                         hours * 0.5 * 10

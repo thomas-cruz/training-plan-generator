@@ -36,21 +36,21 @@ export class GravelRaceGenerator
             "hours",
             [
               this.scheduleWorkout(
-                "Tuesday",
+                "Weekday",
                 CyclingWorkouts.sweetSpotRide(
                   1.5
                 )
               ),
 
               this.scheduleWorkout(
-                "Thursday",
+                "Weekday",
                 CyclingWorkouts.climbingRide(
                   1.5
                 )
               ),
 
               this.scheduleWorkout(
-                "Saturday",
+                "Weekend",
                 CyclingWorkouts.gravelRide(
                   Number(
                     (
@@ -61,7 +61,7 @@ export class GravelRaceGenerator
               ),
 
               this.scheduleWorkout(
-                "Sunday",
+                "Weekend",
                 CyclingWorkouts.longRide(
                   Number(
                     (

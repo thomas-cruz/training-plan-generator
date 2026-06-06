@@ -42,28 +42,28 @@ export class HalfMarathonGenerator
                         "km",
                         [
                             this.scheduleWorkout(
-                                "Tuesday",
+                                "Weekday",
                                 RunningWorkouts.easyRun(
                                     Math.round(volume * 0.2)
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Thursday",
+                                "Weekday",
                                 RunningWorkouts.tempoRun(
                                     Math.round(volume * 0.2)
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Saturday",
+                                "Weekend",
                                 RunningWorkouts.intervalRun(
                                     Math.round(volume * 0.15)
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Sunday",
+                                "Weekend",
                                 RunningWorkouts.longRun(
                                     Math.round(volume * 0.45)
                                 )

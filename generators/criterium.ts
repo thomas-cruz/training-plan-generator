@@ -36,7 +36,7 @@ export class CriteriumGenerator
             "hours",
             [
               this.scheduleWorkout(
-                "Tuesday",
+                "Weekday",
                 CyclingWorkouts.thresholdRide(
                   60,
                   "2x20 FTP"
@@ -44,21 +44,21 @@ export class CriteriumGenerator
               ),
 
               this.scheduleWorkout(
-                "Thursday",
+                "Weekday",
                 CyclingWorkouts.sprintRide(
                   45
                 )
               ),
 
               this.scheduleWorkout(
-                "Saturday",
+                "Weekend",
                 CyclingWorkouts.raceSimulation(
                   60
                 )
               ),
 
               this.scheduleWorkout(
-                "Sunday",
+                "Weekend",
                 CyclingWorkouts.enduranceRide(
                   Math.max(
                     2,

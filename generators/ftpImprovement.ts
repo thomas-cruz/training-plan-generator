@@ -53,7 +53,7 @@ export class FTPImprovementGenerator
                         "hours",
                         [
                             this.scheduleWorkout(
-                                "Tuesday",
+                                "Weekday",
                                 CyclingWorkouts.thresholdRide(
                                     60,
                                     FTP_BLOCKS[index]
@@ -61,14 +61,14 @@ export class FTPImprovementGenerator
                             ),
 
                             this.scheduleWorkout(
-                                "Thursday",
+                                "Weekday",
                                 CyclingWorkouts.vo2Ride(
                                     60
                                 )
                             ),
 
                             this.scheduleWorkout(
-                                "Saturday",
+                                "Weekend",
                                 CyclingWorkouts.enduranceRide(
                                     2
                                 )
