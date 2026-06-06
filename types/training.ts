@@ -70,11 +70,6 @@ export type DayWorkoutType =
   | "strength"
   | "cross_train";
 
-// export interface TrainingWeek {
-//   weekNumber: number;
-//   maxWeeklyDistance: number;
-//   days: TrainingDay[];
-// }
 export interface TrainingWeek {
   weekNumber: number;
 

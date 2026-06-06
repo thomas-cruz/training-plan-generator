@@ -37,46 +37,6 @@ export default function Home() {
       TrainingPlan | null
     >(null);
 
-  // const handleGeneratePlan =
-  //   () => {
-
-  //     // temporary stub
-
-  //     const generatedPlan:
-  //       TrainingPlan = {
-  //         id: crypto.randomUUID(),
-
-  //         planType,
-
-  //         title:
-  //           `${planType} Plan`,
-
-  //         description:
-  //           "Generated plan",
-
-  //         totalWeeks: 8,
-
-  //         totalDurationDays:
-  //           56,
-
-  //         recommendedStartTime:
-  //           "Immediate",
-
-  //         weeklySchedule: [],
-
-  //         workouts: [],
-
-  //         progressMetrics:
-  //           [],
-
-  //         recoveryInstructions:
-  //           [],
-  //       };
-
-  //     setPlan(
-  //       generatedPlan
-  //     );
-  //   };
   const handleGeneratePlan = () => {
     const plan = generatePlan(
       planType,
