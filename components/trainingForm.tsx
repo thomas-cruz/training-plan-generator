@@ -6,6 +6,7 @@ import {
   SkillLevel,
   UserInput,
 } from "@/types/training";
+import { Tooltip } from "./volumeTooltip";
 
 interface Props {
   formData: UserInput;
@@ -46,7 +47,7 @@ export default function TrainingForm({
 
       <div>
         <label className="block">
-          Plan Type
+          Plan Type?
         </label>
 
         <select
@@ -73,7 +74,7 @@ export default function TrainingForm({
 
       <div>
         <label className="block">
-          Age
+          Age?
         </label>
 
         <input
@@ -91,7 +92,7 @@ export default function TrainingForm({
 
       <div>
         <label className="block">
-          Skill Level
+          Skill Level?
         </label>
 
         <select
@@ -117,7 +118,7 @@ export default function TrainingForm({
         </select>
       </div>
 
-      <div>
+      <Tooltip message="Running volume uses KM. Cycling volume uses HOURS">
         <label className="block">
           Weekly Volume
         </label>
@@ -133,7 +134,7 @@ export default function TrainingForm({
             )
           }
         />
-      </div>
+      </Tooltip>
 
       <button
         className="bg-blue-600 text-white px-4 py-2 rounded"
