@@ -8,7 +8,7 @@ import TrainingVolumeChart
     from "./trainingVolumeChart";
 
 import {
-    formatWeek,
+    formatWorkout,
 } from "./planFormatter";
 
 interface Props {
@@ -21,20 +21,20 @@ export default function TrainingPlanDisplay({
     return (
         <div className="mt-8 space-y-8">
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-gray-800 rounded-lg shadow p-6">
 
                 <h2 className="text-2xl font-bold">
                     {plan.title}
                 </h2>
 
-                <p className="text-gray-600 mt-2">
+                <p className=" mt-2">
                     {plan.description}
                 </p>
 
                 <div className="grid grid-cols-3 gap-4 mt-6">
 
                     <div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm ">
                             Duration
                         </div>
 
@@ -44,7 +44,7 @@ export default function TrainingPlanDisplay({
                     </div>
 
                     <div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm ">
                             Total Days
                         </div>
 
@@ -54,7 +54,7 @@ export default function TrainingPlanDisplay({
                     </div>
 
                     <div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm ">
                             Recommended Start
                         </div>
 
@@ -67,7 +67,7 @@ export default function TrainingPlanDisplay({
 
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-gray-800 rounded-lg shadow p-6">
 
                 <h3 className="text-xl font-semibold mb-4">
                     Training Volume Progression
@@ -81,7 +81,7 @@ export default function TrainingPlanDisplay({
 
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-gray-800 rounded-lg shadow p-6">
 
                 <h3 className="text-xl font-semibold mb-4">
                     Weekly Progression
@@ -93,7 +93,7 @@ export default function TrainingPlanDisplay({
 
                         <thead>
 
-                            <tr className="bg-gray-100">
+                            <tr className="bg-gray-900">
 
                                 <th className="border p-2 text-left">
                                     Week
@@ -110,17 +110,17 @@ export default function TrainingPlanDisplay({
                         <tbody>
 
                             {plan.progressMetrics.map(
-                                ([week, volume]) => (
-                                    <tr key={week}>
-
+                                (metric) => (
+                                    <tr key={metric.weekNumber}>
                                         <td className="border p-2">
-                                            Week {week}
+                                            Week {metric.weekNumber}
                                         </td>
 
                                         <td className="border p-2">
-                                            {volume}
+                                            {metric.targetVolume}
+                                            {" "}
+                                            {metric.volumeUnit}
                                         </td>
-
                                     </tr>
                                 )
                             )}
@@ -133,7 +133,7 @@ export default function TrainingPlanDisplay({
 
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-gray-800 rounded-lg shadow p-6">
 
                 <h3 className="text-xl font-semibold mb-4">
                     Weekly Schedule
@@ -141,56 +141,88 @@ export default function TrainingPlanDisplay({
 
                 <div className="space-y-4">
 
-                    {plan.weeklySchedule.map(
-                        (
-                            week,
-                            weekIndex
-                        ) => (
+                    {plan.weeks.map(
+                        (week) => (
                             <div
-                                key={weekIndex}
+                                key={week.weekNumber}
                                 className="
-                  border
-                  rounded-lg
-                  p-4
-                "
+        border
+        rounded-lg
+        p-4
+      "
                             >
 
-                                <h4 className="font-semibold">
-                                    Week {weekIndex + 1}
-                                </h4>
+                                <div
+                                    className="
+          flex
+          justify-between
+          mb-4
+        "
+                                >
 
-                                <div className="flex flex-wrap gap-2 mt-3">
+                                    <h4 className="font-semibold">
+                                        Week {week.weekNumber}
+                                    </h4>
 
-                                    {formatWeek(
-                                        plan.planType,
-                                        week
-                                    ).map(
+                                    <span
+                                        className="
+            text-sm
+            bg-gray-900
+            px-2
+            py-1
+            rounded
+          "
+                                    >
+                                        {week.targetVolume}
+                                        {" "}
+                                        {week.volumeUnit}
+                                    </span>
+
+                                </div>
+
+                                <div className="space-y-2">
+
+                                    {week.days.map(
                                         (
                                             workout,
                                             workoutIndex
-                                        ) => (
-                                            <div
-                                                key={workoutIndex}
-                                                className="
-                                                    border
-                                                    rounded
-                                                    p-3
-                                                    bg-gray-50  
-                                                "
-                                            >
-                                                <div className="font-medium">
-                                                    {workout.day}
-                                                </div>
+                                        ) => {
 
-                                                <div>
-                                                    {workout.title}
-                                                </div>
+                                            const display =
+                                                formatWorkout(
+                                                    workout
+                                                );
 
-                                                <div className="text-sm text-gray-600">
-                                                    {workout.description}
+                                            return (
+                                                <div
+                                                    key={workoutIndex}
+                                                    className="
+                  border
+                  rounded
+                  p-3
+                  bg-gray-600
+                "
+                                                >
+
+                                                    <div className="font-medium">
+                                                        {display.day}
+                                                    </div>
+
+                                                    <div>
+                                                        {display.title}
+                                                    </div>
+
+                                                    <div className="text-sm">
+                                                        {display.description}
+                                                    </div>
+
+                                                    <div className="text-xs ">
+                                                        {display.intensity}
+                                                    </div>
+
                                                 </div>
-                                            </div>
-                                        )
+                                            );
+                                        }
                                     )}
 
                                 </div>
@@ -202,58 +234,6 @@ export default function TrainingPlanDisplay({
                 </div>
 
             </div>
-
-            {plan.recoveryInstructions
-                .length > 0 && (
-
-                    <div className="bg-white rounded-lg shadow p-6">
-
-                        <h3 className="text-xl font-semibold mb-4">
-                            Recovery Notes
-                        </h3>
-
-                        <div className="space-y-3">
-
-                            {plan.recoveryInstructions.map(
-                                (
-                                    instruction,
-                                    index
-                                ) => {
-                                    const week =
-                                        Object.keys(
-                                            instruction
-                                        )[0];
-
-                                    const note =
-                                        instruction[
-                                        Number(week)
-                                        ];
-
-                                    return (
-                                        <div
-                                            key={index}
-                                            className="
-                      border-l-4
-                      pl-4
-                    "
-                                        >
-                                            <div className="font-medium">
-                                                Week {week}
-                                            </div>
-
-                                            <div>
-                                                {note}
-                                            </div>
-                                        </div>
-                                    );
-                                }
-                            )}
-
-                        </div>
-
-                    </div>
-
-                )}
 
         </div>
     );

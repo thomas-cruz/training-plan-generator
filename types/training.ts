@@ -4,10 +4,10 @@
 
 export enum PlanType {
   BEGINNER_5K = "Beginner 5K Run",
-  // BEGINNER_10K = "Beginner 10K Run",
-  // HALF_MARATHON = "First Half Marathon",
-  // CENTURY_RIDE = "First Century Ride",
-  // FTP_IMPROVEMENT = "FTP Improvement"
+  BEGINNER_10K = "Beginner 10K Run",
+  HALF_MARATHON = "First Half Marathon",
+  CENTURY_RIDE = "First Century Ride",
+  FTP_IMPROVEMENT = "FTP Improvement"
 }
 
 export interface UserInput {
@@ -46,10 +46,23 @@ export type DayWorkoutType =
   | "ss_ride" | "strength"
   | "cross_train";
 
+// export interface TrainingWeek {
+//   weekNumber: number;
+//   maxWeeklyDistance: number;
+//   days: TrainingDay[];
+// }
 export interface TrainingWeek {
   weekNumber: number;
-  maxWeeklyDistance: number;
+
+  targetVolume: number;
+
+  volumeUnit:
+    | "km"
+    | "hours";
+
   days: TrainingDay[];
+
+  notes?: string;
 }
 
 export interface TrainingPlan {
@@ -60,14 +73,20 @@ export interface TrainingPlan {
   totalWeeks: number;
   totalDurationDays: number;
   recommendedStartTime: string;
-  weeklySchedule: number[][];
-  workouts: number[][];
-  progressMetrics: number[][];
-  recoveryInstructions: Record<number, string>[];
+  weeks: TrainingWeek[];
+  progressMetrics: ProgressMetric[];
 }
 
 export interface ProgressionStep {
   weekFrom: number;
   weekTo: number;
   adjustmentMultiplier: number;
+}
+
+export interface ProgressMetric {
+  weekNumber: number;
+
+  targetVolume: number;
+
+  volumeUnit: "km" | "hours";
 }

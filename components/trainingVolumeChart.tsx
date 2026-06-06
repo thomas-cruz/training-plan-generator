@@ -9,34 +9,63 @@ import {
   Tooltip,
 } from "recharts";
 
+import {
+  ProgressMetric,
+} from "@/types/training";
+
 interface Props {
-  progressMetrics: number[][];
+  progressMetrics: ProgressMetric[];
 }
 
 export default function TrainingVolumeChart({
   progressMetrics,
 }: Props) {
-  const chartData = progressMetrics.map(
-    ([week, volume]) => ({
-      week,
-      volume,
-    })
-  );
+
+  const volumeUnit =
+    progressMetrics[0]?.volumeUnit ??
+    "km";
 
   return (
     <div className="h-72 w-full">
+
       <ResponsiveContainer>
-        <LineChart data={chartData}>
-          <XAxis dataKey="week" />
-          <YAxis />
-          <Tooltip />
+
+        <LineChart
+          data={progressMetrics}
+        >
+
+          <XAxis
+            dataKey="weekNumber"
+          />
+
+          <YAxis
+            label={{
+              value: volumeUnit,
+              angle: -90,
+              position: "insideLeft",
+            }}
+          />
+
+          <Tooltip
+            formatter={(
+              value,
+              _name,
+              props
+            ) => [
+              `${value} ${props.payload.volumeUnit}`,
+              "Volume",
+            ]}
+          />
 
           <Line
             type="monotone"
-            dataKey="volume"
+            dataKey="targetVolume"
           />
+
         </LineChart>
+
       </ResponsiveContainer>
+
     </div>
   );
 }

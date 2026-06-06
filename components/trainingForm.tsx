@@ -50,7 +50,7 @@ export default function TrainingForm({
         </label>
 
         <select
-          className="border p-2 w-full"
+          className="bg-gray-800 border p-2 w-full"
           value={planType}
           onChange={(e) =>
             onPlanTypeChange(
@@ -95,7 +95,7 @@ export default function TrainingForm({
         </label>
 
         <select
-          className="border p-2 w-full"
+          className="bg-gray-800 border p-2 w-full"
           value={formData.skillLevel}
           onChange={(e) =>
             updateField(
