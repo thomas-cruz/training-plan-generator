@@ -64,4 +64,55 @@ export const CyclingWorkouts = {
             description: "Long endurance ride",
         };
     },
+
+    sprintRide(
+        durationMinutes: number
+    ): TrainingDay {
+        return {
+            dayName: "",
+            workoutType: "sprint_ride",
+            durationMinutes,
+            intensityLevel: 10,
+            description:
+                "Sprint intervals",
+        };
+    },
+
+    raceSimulation(
+        durationMinutes: number
+    ): TrainingDay {
+        return {
+            dayName: "",
+            workoutType: "race_sim",
+            durationMinutes,
+            intensityLevel: 9,
+            description:
+                "Race simulation",
+        };
+    },
+
+    gravelRide(
+        durationHours: number
+    ): TrainingDay {
+        return {
+            dayName: "",
+            workoutType: "gravel_ride",
+            durationHours,
+            intensityLevel: 4,
+            description:
+                "Gravel endurance ride",
+        };
+    },
+
+    climbingRide(
+        durationHours: number
+    ): TrainingDay {
+        return {
+            dayName: "",
+            workoutType: "hill_ride",
+            durationHours,
+            intensityLevel: 7,
+            description: "Hill repeat workout",
+        };
+    },
 };

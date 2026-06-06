@@ -98,4 +98,136 @@ export const PLAN_DEFINITIONS: Record<PlanType, PlanDefinition> = {
       { weekFrom: 8, weekTo: 8, adjustmentMultiplier: 0.85 },
     ],
   },
+
+  [PlanType.MARATHON]: {
+    planType: PlanType.MARATHON,
+  
+    totalWeeks: 16,
+  
+    weeklyIncreasePercent: 0.08,
+  
+    recoveryWeekFrequency: 4,
+  
+    recoveryWeekMultiplier: 0.75,
+  
+    progressionSteps: [
+      {
+        weekFrom: 1,
+        weekTo: 4,
+        adjustmentMultiplier: 1.0,
+      },
+  
+      {
+        weekFrom: 5,
+        weekTo: 8,
+        adjustmentMultiplier: 1.1,
+      },
+  
+      {
+        weekFrom: 9,
+        weekTo: 12,
+        adjustmentMultiplier: 1.05,
+      },
+  
+      {
+        weekFrom: 13,
+        weekTo: 15,
+        adjustmentMultiplier: 1.0,
+      },
+  
+      {
+        weekFrom: 16,
+        weekTo: 16,
+        adjustmentMultiplier: 0.75,
+      },
+    ],
+  },
+
+  [PlanType.CRITERIUM]: {
+    planType: PlanType.CRITERIUM,
+  
+    totalWeeks: 10,
+  
+    weeklyIncreasePercent: 0.05,
+  
+    recoveryWeekFrequency: 4,
+  
+    recoveryWeekMultiplier: 0.70,
+  
+    progressionSteps: [
+      {
+        weekFrom: 1,
+        weekTo: 3,
+        adjustmentMultiplier: 1.0,
+      },
+  
+      {
+        weekFrom: 4,
+        weekTo: 4,
+        adjustmentMultiplier: 0.70,
+      },
+  
+      {
+        weekFrom: 5,
+        weekTo: 8,
+        adjustmentMultiplier: 1.1,
+      },
+  
+      {
+        weekFrom: 9,
+        weekTo: 9,
+        adjustmentMultiplier: 1.0,
+      },
+  
+      {
+        weekFrom: 10,
+        weekTo: 10,
+        adjustmentMultiplier: 0.80,
+      },
+    ],
+  },
+
+  [PlanType.GRAVEL_RACE]: {
+    planType: PlanType.GRAVEL_RACE,
+  
+    totalWeeks: 12,
+  
+    weeklyIncreasePercent: 0.08,
+  
+    recoveryWeekFrequency: 4,
+  
+    recoveryWeekMultiplier: 0.75,
+  
+    progressionSteps: [
+      {
+        weekFrom: 1,
+        weekTo: 3,
+        adjustmentMultiplier: 1.0,
+      },
+  
+      {
+        weekFrom: 4,
+        weekTo: 4,
+        adjustmentMultiplier: 0.75,
+      },
+  
+      {
+        weekFrom: 5,
+        weekTo: 8,
+        adjustmentMultiplier: 1.1,
+      },
+  
+      {
+        weekFrom: 9,
+        weekTo: 11,
+        adjustmentMultiplier: 1.05,
+      },
+  
+      {
+        weekFrom: 12,
+        weekTo: 12,
+        adjustmentMultiplier: 0.80,
+      },
+    ],
+  },
 };

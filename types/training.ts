@@ -6,7 +6,10 @@ export enum PlanType {
   BEGINNER_5K = "Beginner 5K Run",
   BEGINNER_10K = "Beginner 10K Run",
   HALF_MARATHON = "First Half Marathon",
+  MARATHON = "First Marathon",
   CENTURY_RIDE = "First Century Ride",
+  GRAVEL_RACE = "First Gravel Race",
+  CRITERIUM = "First Criterium Race",
   FTP_IMPROVEMENT = "FTP Improvement"
 }
 
@@ -37,13 +40,34 @@ export interface TrainingDay {
   notes?: string;
 }
 
-export type DayWorkoutType = 
-  | "rest" | "recovery"
-  | "easy_run" | "tempo_run" | "interval_run" | "long_run"
-  | "short_run" | "speed"
-  | "long_ride" | "structured_ride" | "interval_ride"
-  | "threshold_ride" | "hiit" | "hill_ride"
-  | "ss_ride" | "strength"
+export type DayWorkoutType =
+  | "rest"
+  | "recovery"
+
+  | "easy_run"
+  | "tempo_run"
+  | "interval_run"
+  | "long_run"
+
+  | "short_run"
+  | "speed"
+
+  | "long_ride"
+  | "structured_ride"
+  | "interval_ride"
+
+  | "threshold_ride"
+  | "hiit"
+  | "hill_ride"
+
+  | "ss_ride"
+
+  | "sprint_ride"
+  | "race_sim"
+
+  | "gravel_ride"
+
+  | "strength"
   | "cross_train";
 
 // export interface TrainingWeek {
@@ -57,8 +81,8 @@ export interface TrainingWeek {
   targetVolume: number;
 
   volumeUnit:
-    | "km"
-    | "hours";
+  | "km"
+  | "hours";
 
   days: TrainingDay[];
 

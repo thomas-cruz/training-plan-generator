@@ -22,6 +22,12 @@ import {
   FTPImprovementGenerator,
 } from "./ftpImprovement";
 
+import { MarathonGenerator } from "./marathon";
+
+import { GravelRaceGenerator } from "./gravelRace";
+
+import { CriteriumGenerator } from "./criterium";
+
 export const generators = {
   [PlanType.BEGINNER_5K]:
     new Beginner5KGenerator(),
@@ -37,4 +43,13 @@ export const generators = {
 
   [PlanType.FTP_IMPROVEMENT]:
     new FTPImprovementGenerator(),
+
+  [PlanType.MARATHON]:
+    new MarathonGenerator(),
+
+  [PlanType.GRAVEL_RACE]:
+    new GravelRaceGenerator(),
+
+  [PlanType.CRITERIUM]:
+    new CriteriumGenerator(),
 };
